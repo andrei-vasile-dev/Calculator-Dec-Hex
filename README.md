@@ -1,6 +1,6 @@
 # 📱 Calculator Zecimal / Hexazecimal
 
-Aplicație Android dezvoltată în **Kotlin** pentru disciplina **Dezvoltarea Aplicațiilor MObile** - Facultatea de Litere și Științe, Specializarea Informatică, UPG Ploiești.
+Aplicație Android dezvoltată în **Kotlin** pentru disciplina **Dezvoltarea Aplicațiilor Mobile** - Facultatea de Litere și Științe, Specializarea Informatică, UPG Ploiești.
 
 Aplicația folosește Fragments, SQLite, comunicație HTTP, email și sistem de log-uri.
 
