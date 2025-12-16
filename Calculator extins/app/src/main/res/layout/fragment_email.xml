@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/emailLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:text="Email:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+
+    <AutoCompleteTextView
+        android:id="@+id/emailAdress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Adresă email"
+        android:inputType="textEmailAddress"
+        android:completionThreshold="1"/>
+
+    <TextView
+        android:text="Subiect:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/emailSubject"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Subiectul email-ului" />
+
+    <ScrollView
+        android:id="@+id/emailScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#EFEFEF"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/emailBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16sp" />
+
+    </ScrollView>
+    
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Trimite"
+        android:textStyle="bold"
+        android:backgroundTint="#FFBF00"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/logLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="40dp">
+
+    <TextView
+        android:text="Log pentru conectare la Internet:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp" />
+
+    <ScrollView
+        android:id="@+id/logScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#EFEFEF"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/logTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="12sp" />
+
+    </ScrollView>
+</LinearLayout>
+
