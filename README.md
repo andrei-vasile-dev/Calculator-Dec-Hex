@@ -127,7 +127,7 @@ Log-ul este:
 
 ## 📄 Documentațe
 
-Documentația completă a implementării se găsește în:
+Documentația completă a implementării se găsește în folder-ul docs.
 
 
 ---
