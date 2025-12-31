@@ -1,116 +1,109 @@
-# 📱 Calculator Zecimal / Hexazecimal
 
-Aplicație Android dezvoltată în **Kotlin** pentru disciplina **Dezvoltarea Aplicațiilor Mobile** - Facultatea de Litere și Științe, Specializarea Informatică, UPG Ploiești.
+# 📱 Decimal / Hexadecimal Calculator
 
-Aplicația folosește Fragments, SQLite, comunicație HTTP, email și sistem de log-uri.
+> **Android application developed in Kotlin** for the **Mobile Application Development** course – Faculty of Letters and Sciences, Informatics Specialization, UPG Ploiești.
 
----
-
-## 🧮 Funcționalități principale
-
-- Calculator **zecimal / hexazecimal**
-- Tastatură virtuală cu cifre '0-F'
-- Operații implementate:
-    - ➕ Adunare
-    - ➖ Scădere
-    - ✖️ Înmulțire
-- Conversie automată între baza 10 și baza 16
-- Istoric calcule selectabil
-- Trimitere istoric prin email
-- Comunicare cu server HTTP/HTTPS
-- Log conexiuni Internet
-- Persistență date cu SQLite
-
+This project implements a robust mobile solution featuring Fragments, SQLite persistence, HTTP communication, email integration, and a dedicated logging system.
 
 ---
 
-## 🧩 Arhitectură aplicație
-Aplicația este structurată folosind **Fragments**:
+## 🧮 Main Features
 
-| Fragment | Descriere |
+- **Decimal / Hexadecimal** Calculator.
+- **Custom Virtual Keyboard** with digits '0-F'.
+- **Mathematical Operations:**
+    - ➕ Addition
+    - ➖ Subtraction
+    - ✖️ Multiplication
+- **Automatic Conversion** between Base 10 and Base 16.
+- **Selectable Calculation History**.
+- **Email Integration** for exporting history.
+- **Remote Server Communication** via HTTP/HTTPS.
+- **Internet Connection Logs**.
+- **Local Data Persistence** using SQLite.
+
+---
+
+## 🧩 Application Architecture
+The application is modularized using **Fragments**, providing a smooth user experience:
+
+| Fragment | Description |
 |--------|------------|
-| Calcul | Tastatură, operații, conversie de bază |
-| Istoric | Istoric calcule (ListView + SQLite) |
-| Email | Trimiterea istoricului prin email |
-| Log | Afișare log conexiuni Internet |
+| **Calcul** | Keyboard interface, math operations, and base conversion logic |
+| **Istoric** | Calculation history management (ListView + SQLite) |
+| **Email** | Feature for sending the calculation history via email |
+| **Log** | Displaying the internet connection logs |
 
-Navigarea între ecrane se realizează folosind ViewPager2.
+Navigation between screens is handled via **ViewPager2**.
 
 ---
 
-## 🗄️ Baza de date (SQLite)
+## 🗄️ Database Structure (SQLite)
 
-Aplicația utilizează o bază de date locală pentru stocarea informațiilor.
+The application uses a local database to ensure data persistence across sessions.
 
-### Tabele implementate
+### Implemented Tables
 
 **calcul**
-- operatie
-- operand1
-- operand2
-- bazanumeratie
-- rezultat
-- dataora
+- `operatie`, `operand1`, `operand2`, `bazanumeratie`, `rezultat`, `dataora`
 
 **istoric**
-- linie
-- culoare
+- `linie`, `culoare`
 
 **emailuri**
-- adresa_email
+- `adresa_email`
 
-La pornirea aplicației, istoricul este încărcat automat din baza de date. De asemenea, valorile din istoric sunt reprezentate cu două culori: cele care sunt în baza 10 cu verde, iar cele care sunt în baza 16 cu roz.
-
----
-
-## 🌐 Comunicare cu serverul
-
-La apăsarea butonului '=', aplicația trimite un request HTTPS de forma:
-utilizator_bazaNumeratie_operand1_operator_operand2
-
-Rezultatul primit de la server este afișat lângă rezultatul calculat local.
+> 💡 **Note:** Upon startup, the history is automatically loaded from the database. To improve readability, entries are color-coded: **Base 10** values are displayed in **green**, while **Base 16** values appear in **pink**.
 
 ---
 
-## 🧾 Sisitem de log-uri
+## 🌐 Server Communication
 
-Aplicația înregistrează următoarele evenimente:
+When the '=' button is pressed, the app sends an HTTPS request in the following format:
+`user_numberBase_operand1_operator_operand2`
 
-- conectarea la server (succes/eroare)
-- trimitere mesaj
-- primire răspuns
-- erori de rețea
-- deconectare
-
-Log-ul este:
-- salvat într-un fișier text din **Internal Storage**
-- citit la pornirea aplicației
-- afișat în fragmentul "Log"
+The result received from the server is displayed side-by-side with the locally calculated result for verification.
 
 ---
 
-## ✉️ Trimitere email
+## 🧾 Logging System
 
-- Istoricul complet poate fi trimis prin email
-- Se utilizează **Explicit Intent**
-- Adresele de email sunt salvate în SQLite
-- Câmpul email oferă sugestii automate bazate pe istoricul trimiterilor
+The application tracks significant events to facilitate debugging and monitoring:
 
----
+- Server connection (Success/Error)
+- Message sent
+- Response received
+- Network errors
+- Disconnection
 
-## 🎨 Interfață utilizator
-
-- Dezactivare butoane 'A-F' în baza 10
-- Conversie automată a valorilor la schimbarea bazei
-- Culori diferite pentru baze în istoric
-    - baza 10 - verde
-    - baza 16 - roz
-- Scroll automat la ultimele valori din istoric
+**Log Specifications:**
+- Saved as a text file in **Internal Storage**.
+- Read and parsed during application startup.
+- Displayed within the **Log** fragment.
 
 ---
 
-## 📸 Capturi de ecran
+## ✉️ Email Export
 
+- The complete history can be shared via email.
+- Implemented using **Explicit Intents**.
+- Recipient email addresses are stored in the **emailuri** table.
+- The email field provides **Auto-suggestions** based on previously used addresses.
+
+---
+
+## 🎨 User Interface & UX
+
+- **Contextual UI:** Buttons 'A-F' are automatically disabled when in Base 10 mode.
+- **Real-time Conversion:** Values convert automatically when switching between bases.
+- **Visual Distinction:** 
+    - Base 10 -> Green
+    - Base 16 -> Pink
+- **Smart Scrolling:** The history automatically scrolls to the most recent values.
+
+---
+
+## 📸 Screenshots
 
 <table>
 <tr>
@@ -125,20 +118,19 @@ Log-ul este:
 </tr>
 </table>
 
-## 📄 Documentațe
+## 📄 Documentation
 
-Documentația completă a implementării se găsește în folder-ul docs.
-
+Full technical documentation regarding the implementation details can be found in the `docs` folder.
 
 ---
 
-## 🛠️ Tehnologii utilizate
+## 🛠️ Tech Stack
 
-- Kotlin
-- Android Fragment
-- SQLite
-- HTTPS (Volley)
-- Explicit Intent (Email)
-- Internal Storage
+- **Language:** Kotlin
+- **UI Components:** Android Fragment, ViewPager2
+- **Database:** SQLite
+- **Networking:** HTTPS (Volley library)
+- **Inter-app Comm:** Explicit Intent (Email)
+- **Storage:** Internal Storage (File I/O)
 
 ---
